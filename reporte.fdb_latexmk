@@ -1,25 +1,25 @@
 # Fdb version 3
-["bibtex reporte"] 1749174893 "reporte.aux" "reporte.bbl" "reporte" 1749174894
+["bibtex reporte"] 1749176126 "reporte.aux" "reporte.bbl" "reporte" 1749176127
   "/usr/share/texlive/texmf-dist/bibtex/bst/apacite/apacite.bst" 1374530685 141073 9d7b79dbf9d91133318126032cff8c27 ""
   "bb.bib" 1747708666 30921 574840898228735504764ff059fb2279 ""
-  "reporte.aux" 1749174894 1937 6a7cb027e1d8d21cad59e41154bb25ec "pdflatex"
+  "reporte.aux" 1749176127 2042 30b8cda66372f0500728f2847cf26791 "pdflatex"
   (generated)
   "reporte.bbl"
   "reporte.blg"
-["cusdep asy pdf asy/reporte-1"] 0 "asy/reporte-1.asy" "asy/reporte-1.pdf" "asy/reporte-1" 1749174894
-  "asy/reporte-1.asy" 1749174894 679 faf2ac3020c05e1e29c66a85bac39819 "pdflatex"
+["cusdep asy pdf asy/reporte-1"] 0 "asy/reporte-1.asy" "asy/reporte-1.pdf" "asy/reporte-1" 1749176127
+  "asy/reporte-1.asy" 1749176127 679 faf2ac3020c05e1e29c66a85bac39819 "pdflatex"
   (generated)
   "asy/reporte-1.pdf"
-["cusdep asy pdf asy/reporte-2"] 0 "asy/reporte-2.asy" "asy/reporte-2.pdf" "asy/reporte-2" 1749174894
-  "asy/reporte-2.asy" 1749174894 1121 666a01f8f8830db113c0c5015ebf918b "pdflatex"
+["cusdep asy pdf asy/reporte-2"] 0 "asy/reporte-2.asy" "asy/reporte-2.pdf" "asy/reporte-2" 1749176127
+  "asy/reporte-2.asy" 1749176127 1121 666a01f8f8830db113c0c5015ebf918b "pdflatex"
   (generated)
   "asy/reporte-2.pdf"
-["makeindex reporte.idx"] 1749174893 "reporte.idx" "reporte.ind" "reporte" 1749174894
-  "reporte.idx" 1749174894 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+["makeindex reporte.idx"] 1749175997 "reporte.idx" "reporte.ind" "reporte" 1749176127
+  "reporte.idx" 1749176127 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
   (generated)
   "reporte.ilg"
   "reporte.ind"
-["pdflatex"] 1749174893 "reporte.tex" "reporte.pdf" "reporte" 1749174894
+["pdflatex"] 1749176126 "reporte.tex" "reporte.pdf" "reporte" 1749176127
   "/etc/texmf/web2c/texmf.cnf" 1747707857 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/usr/local/share/texmf/fonts/tfm/pctex/mtpro2/mt2exa.tfm" 1748744854 1528 50e2c017cdd33a4ccc24fff3337eb010 ""
   "/usr/local/share/texmf/fonts/tfm/pctex/mtpro2/mt2exe.tfm" 1748744854 1412 1f8cc5e8af48186ba2e5d5e21e4046ac ""
@@ -172,14 +172,14 @@
   "asy/reporte-1.pdf" 1749174470 17873 751894dca165264777912e29b3288ed3 "cusdep asy pdf asy/reporte-1"
   "asy/reporte-2.pdf" 1749173873 29198 39e51313a3c1a6ab6523be27d88c6e69 "cusdep asy pdf asy/reporte-2"
   "bb.bib" 1747708666 30921 574840898228735504764ff059fb2279 ""
-  "reporte.aux" 1749174894 1937 6a7cb027e1d8d21cad59e41154bb25ec "pdflatex"
-  "reporte.bbl" 1749174893 49 0eba253fc001332e731e8aba3f23127b "bibtex reporte"
-  "reporte.ind" 1749174893 0 d41d8cd98f00b204e9800998ecf8427e "makeindex reporte.idx"
-  "reporte.lof" 1749174894 150 3a6ad1353bb13c43205b8c09ae5230e4 "pdflatex"
-  "reporte.lot" 1749174894 150 3a6ad1353bb13c43205b8c09ae5230e4 "pdflatex"
-  "reporte.pre" 1749174894 90 00305b2fa29bea0992d6a8330dc32ca6 "pdflatex"
-  "reporte.tex" 1749174835 8926 7451300921da8cdab92ce2cee3c550c6 ""
-  "reporte.toc" 1749174894 780 eaa1071eb7b6e6bb9fdec6bbf81976a3 "pdflatex"
+  "reporte.aux" 1749176127 2042 30b8cda66372f0500728f2847cf26791 "pdflatex"
+  "reporte.bbl" 1749176126 49 0eba253fc001332e731e8aba3f23127b "bibtex reporte"
+  "reporte.ind" 1749175997 0 d41d8cd98f00b204e9800998ecf8427e "makeindex reporte.idx"
+  "reporte.lof" 1749176127 150 3a6ad1353bb13c43205b8c09ae5230e4 "pdflatex"
+  "reporte.lot" 1749176127 150 3a6ad1353bb13c43205b8c09ae5230e4 "pdflatex"
+  "reporte.pre" 1749176127 90 00305b2fa29bea0992d6a8330dc32ca6 "pdflatex"
+  "reporte.tex" 1749176116 9500 29f491c862c6d56bfe216343b4b3951c ""
+  "reporte.toc" 1749176127 843 aefe67b1121430ac6ba672c628fae825 "pdflatex"
   (generated)
   "asy/reporte-1.asy"
   "asy/reporte-2.asy"
