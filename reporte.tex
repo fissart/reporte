@@ -1,0 +1,255 @@
+\documentclass[12pt,a4paper]{book}
+%\usepackage[inline]{asymptote}
+\usepackage{asymptote}
+%\usepackage{numprint}
+\usepackage{times}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{tabularx}
+\usepackage[lite]{mtpro2}
+\usepackage{expl3}
+\ExplSyntaxOn
+% make an internal function available to the user
+\cs_set_eq:NN \fpeval \fp_eval:n
+\ExplSyntaxOff
+\def\asydir{asy}
+%latexmk main.tex -ps -pdf- -dvi- -pvc
+%live-server www.html in folder//npm install -g live-server ///
+%while true; do inotifywait -e CLOSE_WRITE www.asy; asy -f html  www.asy; done; ///
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%https://github.com/fissart/artbook/raw/main/artbook.pdf
+\usepackage[spanish]{babel}
+\usepackage[centertags]{amsmath}
+\usepackage{amsfonts}
+\usepackage{pstricks-add}
+\usepackage{graphicx}
+\usepackage{longtable}
+\usepackage{booktabs}
+%\usepackage{ulem}
+%\usepackage{textcomp}
+%\usepackage{showframe}
+%\usepackage[utf8]{inputenc}
+%\usepackage{hyperref}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[apaciteclassic, nosectionbib, tocbib]{apacite}
+\usepackage{usebib}
+\bibinput{bb}
+\usepackage{makeidx}
+\makeindex
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newtheorem{comen}{Comentario}[chapter]
+\newtheorem{thm}{Teorema}[chapter]
+\newtheorem{defn}[thm]{Definición}
+\newtheorem{lem}{Lema}[thm]
+\newtheorem{cor}{Corolario}[thm]
+\newtheorem{prop}{Proposicion}[thm]
+\newtheorem{rem}{Remark}[thm]
+\newtheorem{ill}{Illustration}[thm]
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\qw}{\phi}
+\newcommand{\Real}{\mathbb R}
+\newcommand{\pa}[1]{\left(#1\right)}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{asydef}
+	settings.prc=false;
+	texpreamble("\usepackage[lite,subscriptcorrection,slantedGreek,nofontinfo,amsbb,eucal]{mtpro2}");
+	defaultpen(fontsize(12 pt));
+	defaultpen(linewidth(0.7pt));
+	//settings.render=1;
+\end{asydef}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\thispagestyle{empty}
+{
+	\centering
+	\vspace{3cm}
+	\bf{\huge ARTE Y MATEMÁTICAS}\\
+	\bf{\large ARTE Y MATEMÁTICAS}\\
+	\vspace{0.5cm}
+	\bf{RICARDO}\\
+	\vspace{.5cm}
+
+	\begin{asy}
+	import graph;
+
+size(200,150,IgnoreAspect);
+
+real[] x={0,1,2,3};
+real[] y=x^2;
+
+draw(graph(x,y),red);
+
+xaxis("$x$",BottomTop,LeftTicks);
+yaxis("$y$",LeftRight,
+      RightTicks(Label(fontsize(8pt)),new real[]{0,4,9}));
+	\end{asy}
+	\vfill
+	%ps://asy.marris.fr/
+	Departmento de mathemática y física, FIMGC USNCH\\
+	\emph{E-mail}: \texttt{ricardomallqui@gmail.com}\\
+	URL: \textsf{www.fractales.com}
+
+}
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+{
+	\thispagestyle{empty}
+	\noindent\bf{Arte y Matemáticas}\\
+	\bf{Ricardo Michel Mallqui Baños}\\
+	\vspace{3cm}
+
+	\noindent Un libro basado en código asymptote LaTeX y pstricks\\
+
+	\noindent Bibliografia.\\
+	\noindent Incluye Indice.\\
+	1. Geometría, Diferencial. 2. Curvas. 3. Superficies. \\
+	\vfill
+	\noindent
+	\begin{asy}
+		size(300);
+		path ltrans(path p,int d)
+		{
+				path a=rotate(65)*scale(0.4)*p;
+				return shift(point(p,(1/d)*length(p))-point(a,0))*a;
+			}
+		path rtrans(path p, int d)
+		{
+				path a=reflect(point(p,0),point(p,length(p)))*rotate(65)*scale(0.35)*p;
+				return shift(point(p,(1/d)*length(p))-point(a,0))*a;
+			}
+
+		void drawtree(int depth, path branch)
+		{
+				if(depth == 0) return;
+				real breakp=(1/depth)*length(branch);
+				draw(subpath(branch,0,breakp),blue);
+				drawtree(depth-1,subpath(branch,breakp,length(branch)));
+				drawtree(depth-1,ltrans(branch,depth));
+				drawtree(depth-1,rtrans(branch,depth));
+				return;
+			}
+
+		path start=(0,0)..controls (-1/10,1/3) and (-1/20,2/3)..(1/20,1);
+		drawtree(7,start);
+	\end{asy}
+
+	%\noindent \texttt{\textregistered\;\textcopyright\; 2023 pa-esfa, Inc. UNSCH, Huamanga}\\
+	\noindent %\texttt{\textregistered\;\textcopyright}\\
+	\texttt{Todos los derechos reservados. Ninguna parte de esto
+		libro puede ser reproducido en cualquier forma,
+		o por cualquier medio, sin permiso
+		por escrito del editor.}\\
+	Departmento de mathemática y física, FIMGC USNCH\\
+	\emph{E-mail}: \texttt{ricardomallqui@gmail.com}\\
+	URL: \textsf{www.fractales.com}
+
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\renewcommand\listfigurename{Índice general}
+\pagenumbering{roman}
+\setcounter{page}{1}
+\addcontentsline{toc}{chapter}{Índice general}
+\tableofcontents
+\renewcommand\listfigurename{Lista de figuras}
+\addcontentsline{toc}{chapter}{Lista de figuras}
+\listoffigures
+
+\renewcommand\listtablename{Lista de tablas}
+\addcontentsline{toc}{chapter}{Lista de tablas}
+\listoftables
+%\newpage
+%\clearpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter*{Presentación}
+\addcontentsline{toc}{chapter}{Presentación}
+
+%\underline{\underline{Double underlined text}}
+%{Double underlined text}
+%\textsl{\underline{Slanted underlined}}
+%\textsc{\underline{Small caps underlined}}
+
+Matemáticas en el arte plástico nace del intento de poner en orden, la  noción intuitiva que se tiene sobre la estructura compositiva en el arte plástico y hacerla un tanto rigurosa en un aspecto lógico de formas, sobre una
+base estructural geométrica.
+
+El número áureo, es uno de los fractales más interesantes, el objetivo es
+hacer reconocer, de que modo, este número esta relacionado con los fracta-
+les y generalizarlo, a conceptos mucho más elaborados, para poder aplicar-
+las en el arte plástico. El universo tiene un lenguaje, basado en los números,
+que la describe casi por completo, lo cual implica que está presente, en todos
+los fenómenos de la realidad.
+
+Se sabe que a pesar de lo discutible de su conocimiento sobre el número
+áureo, Platón se ocupa de estudiar el origen y la estructura del cosmos,
+caso que intentó, usando los cinco sólidos platónicos, Para Platón los sólidos
+corresponden a una de las partículas que conformaban cada uno de los
+elementos es decir la tierra lo asocia con el cubo, el fuego con el tetraedro,
+el aire con el octaedro, el agua con el icosaedro y finalmente el universo,
+como un todo asociado con el dodecaedro las cuales se tratan en el Capítulo 3.
+
+Se analizo el libro del teólogo y matemático Lucca Paccioli que trata
+sore la sección áurea en base al legado dejado por Platón y Euclides, en
+su libro La Divina Proporción donde describe la construcción de los cinco
+sólidos platónicos, el nombre Platónico debido la descripción constructiva
+de estos sólidos por Platón, asociados a la estética, la mística, la cósmica
+y la teológica, que conmovió a todas las generaciones, desde los pueblos
+neolíticos hasta nuestros dias.
+
+Lucca Pacioli publica su libro La Divina proporción en 1509, donde plan-
+tea cinco razones por la que estima apropiado considerar divino al número
+de oro, primero la unicidad del número de oro, la compara con la unici-
+dad de dios, segundo el hecho de que esté definido con tres segmentos de
+recta lo relaciona con la trinidad, tercero la inconmensurabilidad del nú-
+mero de oro y la inconmensurabilidad de Dios son equivalentes, cuarto la
+utosimilitud asociada al número de oro lo compara con la omnipotencia e
+invariabilidad, finalmente el quinto, de la misma manera en que Dios dio ser
+al universo a través de la quinta esencia, representada por el dodecaedro,
+el número de oro, dio ser al dodecaedro.
+
+Pero si bien ejemplos y contraejemplos constituyen una trascendencia
+importante, en algún proceso, se trato de evitar que el lector, se quede con
+la idea de que los números están trivialmente en alguna aplicación, por
+ello se ha procurado presentar de manera ordenada en el cuerpo básico del
+texto, de manera que exista una secuencia de conceptos implicados unos
+con otros.
+
+Cinco capítulos son los que forman el libro, el primero sobre la sección
+áurea, el segundo sobre formas geométricas en el plano, el tercero sobre los
+sólidos platónicos, el cuarto sobre los fractales, el quinto sobre los principios
+de la composición plástica, el sexto sobre superficies esto con el objetivo de
+establecer algunos términos en la escultura y reconocer sus propiedades
+para ser aplicada adecuadamente y finalmente un pequeño apéndice.
+
+Cinco capítulos son los que forman el libro, el primero sobre la sección
+áurea, el segundo sobre formas geométricas en el plano, el tercero sobre los
+sólidos platónicos, el cuarto sobre los fractales, el quinto sobre los principios
+de la composición plástica, el sexto sobre superficies esto con el objetivo de
+establecer algunos términos en la escultura y reconocer sus propiedades
+para ser aplicada adecuadamente y finalmente un pequeño apéndice.
+\chapter{First}
+
+\bibliographystyle{apacite}
+\bibliography{bb}
+\addcontentsline{toc}{chapter}{Indices}
+\printindex
+
+\appendix
+\pagenumbering{roman}
+\setcounter{page}{1}
+\chapter{www}
+\chapter{www}
+\chapter{www}
+\chapter{www}
+\chapter{www}
+
+\end{document}
+
